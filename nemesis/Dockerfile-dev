@@ -1,0 +1,10 @@
+FROM node:10-alpine
+WORKDIR /tmp
+COPY package*.json ./
+RUN npm install
+WORKDIR /opt/app
+RUN cp -a /tmp/node_modules .
+COPY . .
+ENV NODE_ENV=development
+USER node
+CMD [ "./entrypoint.sh" ]

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nemesis:
+    build:
+      context: ./nemesis
+      dockerfile: Dockerfile-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./nemesis/src:/opt/app/src
+  stormbreaker:
+    build: ./stormbreaker
+    ports:
+      - "5000:5000"

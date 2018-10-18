@@ -1,0 +1,26 @@
+{
+  "name": "stormbreaker",
+  "version": "1.0.0",
+  "main": "server.mjs",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^6.0.0",
+    "esm": "^3.0.84",
+    "express": "^4.16.3",
+    "express-cassandra": "^2.2.3",
+    "express-jwt": "^5.3.1",
+    "express-validation": "^1.0.2",
+    "figlet": "^1.2.0",
+    "joi": "^13.4.0",
+    "jsonwebtoken": "^8.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "request": "^2.87.0",
+    "stripe": "^6.1.1"
+  },
+  "scripts": {
+    "start": "node -r esm -r dotenv/config server.js",
+    "serve": "pm2-runtime server.js --node-args=\"-r esm -r dotenv/config\""
+  }
+}
