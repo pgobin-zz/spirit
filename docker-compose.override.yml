@@ -6,9 +6,13 @@ services:
       dockerfile: Dockerfile-dev
     ports:
       - "3000:3000"
+      - "35729:35729"
     volumes:
       - ./nemesis/src:/opt/app/src
+      - ./nemesis/public:/opt/app/public
   stormbreaker:
-    build: ./stormbreaker
+    build:
+      context: ./stormbreaker
+      dockerfile: Dockerfile-dev
     ports:
       - "5000:5000"

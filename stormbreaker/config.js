@@ -29,7 +29,7 @@ export const secret = process.env.JWT_SECRET
 
 
 export const headers = (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', process.env.ASTRA_BASE_URL)
+  res.setHeader('Access-Control-Allow-Origin', process.env.NEMESIS_BASE_URL)
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Content-Type', 'application/json')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Range')

@@ -19,25 +19,25 @@ unless prior written permission is obtained from Vlogur, Inc. */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 
-import './index.css';
-import App from './containers/app/App';
-import * as serviceWorker from './serviceWorker';
-import * as customStore from './customStore';
-import routes from './routes';
+import Signup from './Signup';
+import * as customStore from '../../customStore';
 
 
 const store = customStore.create();
 
 
-ReactDOM.hydrate(
-  <Provider store={store}><App routes={routes}/></Provider>,
-  document.getElementById('root')
-);
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  const props = {};
 
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter><Signup {...props}/></BrowserRouter>
+    </Provider>, div
+  );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  ReactDOM.unmountComponentAtNode(div);
+});
