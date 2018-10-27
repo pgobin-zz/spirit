@@ -18,26 +18,11 @@ unless prior written permission is obtained from Vlogur, Inc. */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import App from './App';
 
 
-import './index.css';
-import App from './containers/app/App';
-import * as serviceWorker from './serviceWorker';
-import * as customStore from './customStore';
-import routes from './routes';
-
-
-const store = customStore.create();
-
-
-ReactDOM.hydrate(
-  <Provider store={store}><App routes={routes}/></Provider>,
-  document.getElementById('root')
-);
-
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
